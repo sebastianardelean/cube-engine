@@ -17,7 +17,15 @@ class cube::Engine
 	Engine()
 	{
 	    pErrorManager = std::make_unique<ErrorManager>();
+
 	}
+	void Init()
+	{
+	    pWindowManager->Init(config.title,
+		    config.width,
+		    config.height);
+	}
+
 	void Run()
 	{
 	    spdlog::info("run");
