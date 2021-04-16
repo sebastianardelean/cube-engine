@@ -3,11 +3,11 @@
 
 struct ErrorManager
 {
-    [[nodiscard]] void StoreError(int16_t error)
+    void StoreError(int16_t error)
     {
 	nError=error;
     }
-    [[nodiscard]] void GetError(int16_t error) 
+    [[nodiscard]] int16_t GetError(int16_t error) 
     {
 	return nError;
     }
@@ -15,4 +15,4 @@ struct ErrorManager
 	int16_t nError;
 
 
-}
+};

@@ -2,7 +2,7 @@
 
 set(src 
         main.cpp 
-	window_manager.cpp
+    	window_manager.cpp
     )
 set(inc 
 	engine.hpp
@@ -10,10 +10,16 @@ set(inc
 	error_manager.hpp
 	game_config.hpp
     )
+
+
+
 add_executable(intro ${src} ${inc})
+#target_include_directories(intro ${SDL2_INCLUDE_DIR})
 target_link_libraries(
   intro
   PRIVATE project_options
+	  SDL2::SDL2
+	  SDL2::SDL2main
           CONAN_PKG::fmt
-          CONAN_PKG::spdlog
+          CONAN_PKG::spdlog 
 	  )

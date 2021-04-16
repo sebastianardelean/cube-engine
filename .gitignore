@@ -9,4 +9,4 @@ CMakeCache.txt
 conan*
 *.json
 tags
-
+Lib/*
