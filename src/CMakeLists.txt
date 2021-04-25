@@ -3,12 +3,18 @@
 set(src 
         main.cpp 
     	window_manager.cpp
+	input_manager.cpp
+	render_manager.hpp
     )
 set(inc 
 	engine.hpp
 	window_manager.hpp
 	error_manager.hpp
+	input_manager.hpp
 	game_config.hpp
+	pixel.hpp
+	sprite.hpp
+	render_manager.hpp
     )
 
 
