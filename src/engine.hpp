@@ -3,6 +3,7 @@
 #include "render_manager.hpp"
 #include "error_manager.hpp"
 #include "input_manager.hpp"
+#include "scene_manager.hpp"
 namespace cube {
 
     struct GameConfig;
@@ -30,19 +31,23 @@ class cube::Engine
 	Engine(Engine &&)=delete;
 	Engine &operator=(const Engine &)=delete;
 	Engine &operator=(Engine &&)=delete;
-	void Init()
+	void Init(std::unique_ptr<SceneManager> scene)
 	{
+	    pSceneManager = scene;
 	    pWindowManager->Init(config.title,
 		    config.width,
 		    config.height);
-
+	    pInputManager->RegisterCallback(std::bind(&cube::Engine<Config>::InputManagerCallback,this));
 	    bIsRunning = true;
 	}
 
 	void Run()
 	{
 	    while(bIsRunning) {
-		pInputManager->HandleEvent();
+		pInputManager->PollEvent();
+
+		pSceneManager->DrawScene();
+		pRenderManager->Render();
 	    }
 	}
 
@@ -51,11 +56,19 @@ class cube::Engine
 	}
     protected:
     private:
+	void InputManagerHandler(EventMessage e) {
+	    if (e.GetEventType() == Event_Quit) {
+		bIsRunning = false;
+	    }
+	}
+
+    
 	Config config;
 	std::unique_ptr<ErrorManager> pErrorManager;
 	std::unique_ptr<WindowManager> pWindowManager;
 	std::unique_ptr<InputManager> pInputManager;
 	std::unique_ptr<RenderManager> pRenderManager;
+	std::unique_ptr<SceneManager> pSceneManager;
 	std::atomic<bool> bIsRunning{false};
 };
 
