@@ -20,8 +20,8 @@ class RenderManager
 	RenderManager &operator=(const RenderManager &)=delete;
 	RenderManager &operator=(RenderManager &&)=delete;
 
-	void Init(SDL_Window &window);
-	void Prepare(Sprite &s);
+	void Init(SDL_Window &window, std::string preferredRenderer);
+	void Prepare(const Sprite s);
 	void Render();
     protected:
     private:

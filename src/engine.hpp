@@ -33,11 +33,14 @@ class cube::Engine
 	Engine &operator=(Engine &&)=delete;
 	void Init(std::unique_ptr<SceneManager> scene)
 	{
-	    pSceneManager = scene;
+	    pSceneManager = std::move(scene);
 	    pWindowManager->Init(config.title,
 		    config.width,
 		    config.height);
-	    pInputManager->RegisterCallback(std::bind(&cube::Engine<Config>::InputManagerCallback,this));
+	    pInputManager->RegisterCallback(std::bind(&cube::Engine<Config>::InputManagerHandler,this,std::placeholders::_1));
+	    
+	    pRenderManager->Init(pWindowManager->GetSdlWindow(),"opengl");
+
 	    bIsRunning = true;
 	}
 
@@ -46,7 +49,8 @@ class cube::Engine
 	    while(bIsRunning) {
 		pInputManager->PollEvent();
 
-		pSceneManager->DrawScene();
+		pSceneManager->UpdateScene();
+		pRenderManager->Prepare(pSceneManager->GetDrawTarget());
 		pRenderManager->Render();
 	    }
 	}

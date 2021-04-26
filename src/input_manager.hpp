@@ -1,58 +1,5 @@
 #pragma once
-
-enum InputManagerEvent: uint8_t
-{
-    Event_Quit=0,
-    Event_KeyDown,
-    Event_KeyUp,
-    Event_MouseMotion,
-    Event_MouseButtonDown,
-    Event_MouseButtonUp,
-    Event_MouseWheel
-
-};
-
-struct EventMessage {
-    EventMessage(const InputManagerEvent event):eventType(event)
-    {
-    }
-
-    [[nodiscard]]InputManagerEvent GetEventType() const {
-	return eventType;
-    }
-    protected:
-        InputManagerEvent eventType;
-};
-
-struct QuitEventMessage: public EventMessage {
-    QuitEventMessage():EventMessage(Event_Quit){
-    }
-};
-
-struct KeyDownEventMessage: public EventMessage {
-    KeyDownEventMessage(const int8_t readKey):EventMessage(Event_KeyDown) {
-	key = readKey;
-    }
-    
-    int8_t key;
-};
-
-struct KeyUpEventMessage: public EventMessage {
-    KeyUpEventMessage(const int8_t readKey):EventMessage(Event_KeyUp) {
-	key = readKey;
-    }
-    
-    int8_t key;
-};
-
-struct MouseMotionEventMessage: public EventMessage {
-    MouseMotionEventMessage(int32_t dx,int32_t dy):EventMessage(Event_MouseMotion){
-	x=dx;
-	y=dy;
-    }
-    int32_t x;
-    int32_t y;
-};
+#include "input_manager_events.hpp"
 
 class InputManager
 {
@@ -65,30 +12,80 @@ class InputManager
 	{
 	    SDL_Event event;
 	    SDL_PollEvent(&event);
+	    EventMessage msg;
 	    switch(event.type) {
-		case SDL_QUIT: {
-		    spdlog::info("Quit");
-		    QuitEventMessage msg;
-		    fCallback(msg);
+		case SDL_QUIT:
+		    msg = QuitEventMessage();
 		    break;
-		}
-		case SDL_KEYDOWN:
-		    spdlog::info("Keydown");
-		    break;
+		case SDL_KEYDOWN: 
+		    msg=KeyDownEventMessage(event.key.keysym.sym);
+		    break;				  
 		case SDL_KEYUP:
-		    spdlog::info("KeyUP");
+		    msg=KeyUpEventMessage(event.key.keysym.sym);
 		    break;
 		case SDL_MOUSEMOTION:
+		{
+		    int32_t x = 0, y = 0;
+		    SDL_GetMouseState(&x,&y);
+		    msg = MouseMotionEventMessage(x,y);
+		}
 		    break;
 		case SDL_MOUSEBUTTONDOWN:
+		{
+		    uint8_t mouseButton = MouseButton_Left;
+		    int32_t x = 0, y = 0;
+		    SDL_GetMouseState(&x,&y);
+		    if (SDL_BUTTON(SDL_BUTTON_LEFT)) {
+			
+		    }
+		    else if (SDL_BUTTON(SDL_BUTTON_RIGHT)) {
+			mouseButton = MouseButton_Right;
+		    }
+		    else if (SDL_BUTTON(SDL_BUTTON_MIDDLE)) {
+			mouseButton = MouseButton_Middle;
+		    }
+		    msg = MouseButtonDownEventMessage(static_cast<MouseButton>(mouseButton),x,y);
+		}
 		    break;
-		case SDL_MOUSEBUTTONUP:
-		    spdlog::info("MOUSE");
+		case SDL_MOUSEBUTTONUP:    
+		{
+		    uint8_t mouseButton = MouseButton_Left;
+		    int32_t x = 0, y = 0;
+		    SDL_GetMouseState(&x,&y);
+		    if (SDL_BUTTON(SDL_BUTTON_LEFT)) {
+			
+		    }
+		    else if (SDL_BUTTON(SDL_BUTTON_RIGHT)) {
+			mouseButton = MouseButton_Right;
+		    }
+		    else if (SDL_BUTTON(SDL_BUTTON_MIDDLE)) {
+			mouseButton = MouseButton_Middle;
+		    }
+		    msg = MouseButtonUpEventMessage(static_cast<MouseButton>(mouseButton),x,y);
+		}
 		    break;
 		case SDL_MOUSEWHEEL:
-		    spdlog::info("Mouse Wheel");
+		{
+		    if (event.wheel.y > 0 ) {
+			msg = MouseWheelUpEventMessage(event.wheel.y);
+		    }
+		    else if(event.wheel.y < 0) {
+			msg = MouseWheelDownEventMessage(event.wheel.y);
+			//scroll down
+		    } else if(event.wheel.x > 0) {
+			//scroll right
+			//TODO:
+		    }
+		    else if (event.wheel.x < 0) {
+			//scroll left
+			//TODO:
+		    }
+
+		}
 		    break;
 	    }
+
+	    fCallback(msg);
 //	    fCallback();
 	}
     protected:

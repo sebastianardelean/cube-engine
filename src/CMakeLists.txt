@@ -3,7 +3,7 @@
 set(src 
         main.cpp 
     	window_manager.cpp
-	render_manager.hpp
+	render_manager.cpp
     )
 set(inc 
 	engine.hpp
@@ -14,6 +14,7 @@ set(inc
 	pixel.hpp
 	sprite.hpp
 	render_manager.hpp
+	input_manager_events.hpp
 	scene_manager.hpp
     )
 

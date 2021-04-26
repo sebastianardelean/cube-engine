@@ -21,7 +21,9 @@ class SceneManager
 	    Pixel p(Color(r,g,b,a),x,y);
 	    drawTarget.SetPixel(p);
 	}
-
+	void UpdateScene() {
+	    DrawScene();
+	}
     protected:
 	virtual void DrawScene() {}
 
