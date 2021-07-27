@@ -163,11 +163,10 @@ void DrawCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius
   DrawCircle(obj,pos.X(), pos.Y(), radius, p, mask);
 }
 
-#if 0
 // Fills a circle located at (x,y) with radius
-void FillCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE) {
-  if (radius < 0 || x < -radius || y < -radius || x - n_WindowWidth > radius ||
-      y - n_WindowHeight > radius)
+void FillCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p = WHITE) {
+  if (radius < 0 || x < -radius || y < -radius || x - obj.GetWindowWidth() > radius ||
+      y - obj.GetWindowHeight() > radius)
     return;
 
   if (radius > 0) {
@@ -177,7 +176,7 @@ void FillCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE) {
 
     auto drawline = [&](int sx, int ex, int y) {
       for (int x = sx; x <= ex; x++)
-        Draw(x, y, p.value.red, p.value.green, p.value.blue, p.value.alpha);
+        obj.Draw(x, y, p.red, p.green, p.blue, p.alpha);
     };
 
     while (y0 >= x0) {
@@ -196,15 +195,16 @@ void FillCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE) {
       }
     }
   } else {
-    Draw(x, y, p.value.red, p.value.green, p.value.blue, p.value.alpha);
+    obj.Draw(x, y, p.red, p.green, p.blue, p.alpha);
   }
 }
 
-void FillCircle(const vector::vector2Di_t &pos, int32_t radius,
-                Pixel p = WHITE) {
-  FillCircle(pos.X(), pos.Y(), radius, p);
+void FillCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius,
+                Color p = WHITE) {
+  FillCircle(obj,pos.X(), pos.Y(), radius, p);
 }
 
+#if 0
 // Draws a rectangle at (x,y) to (x+w,y+h)
 void DrawRect(int32_t x, int32_t y, int32_t w, int32_t h, Pixel p = WHITE) {
   DrawLine(x, y, x + w, y, p);
