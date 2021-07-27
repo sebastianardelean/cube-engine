@@ -16,6 +16,8 @@ set(inc
 	render_manager.hpp
 	input_manager_events.hpp
 	scene_manager.hpp
+	vector2d.hpp
+	draw.hpp
     )
 
 

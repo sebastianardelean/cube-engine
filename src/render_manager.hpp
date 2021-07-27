@@ -1,5 +1,5 @@
 #pragma once
-#include "sprite.hpp"
+#include "canvas.hpp"
 class RenderManager
 {
     public:
@@ -21,7 +21,7 @@ class RenderManager
 	RenderManager &operator=(RenderManager &&)=delete;
 
 	void Init(SDL_Window &window, std::string preferredRenderer);
-	void Prepare(const Sprite s);
+	void Prepare(const Canvas c);
 	void Render();
     protected:
     private:
@@ -30,5 +30,5 @@ class RenderManager
 	SDL_Surface *pSdlSurface = nullptr;
 	int32_t nWindowWidth;
 	int32_t nWindowHeight;
-	Sprite sprite;
+	Canvas canvas;
 };

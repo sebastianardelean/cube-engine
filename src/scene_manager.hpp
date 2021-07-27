@@ -1,5 +1,5 @@
 #pragma once
-#include "sprite.hpp"
+#include "canvas.hpp"
 class SceneManager
 {
     public:
@@ -8,19 +8,36 @@ class SceneManager
 	virtual ~SceneManager() {
 	}
 
+	void Init(int32_t windowWidth, int32_t windowHeight)
+    {
+	    nWindowWidth = windowWidth;
+	    nWindowHeight = windowHeight;
+	    drawTarget = Canvas(windowWidth, windowHeight);
+    }
 	SceneManager(const SceneManager &)=delete;
 	SceneManager(SceneManager &&)=delete;
 	SceneManager &operator=(const SceneManager &)=delete;
 	SceneManager &operator=(SceneManager &&)=delete;
-	[[nodiscard]] Sprite GetDrawTarget() const {
+	[[nodiscard]] Canvas GetDrawTarget() const {
 	    return drawTarget;
 	}
 
 	void Draw(int32_t x, int32_t y, uint8_t r,uint8_t g,uint8_t b,uint8_t a) {
-	    
-	    Pixel p(Color(r,g,b,a),x,y);
+	    Color c(r,g,b,a);
+	    Pixel p(c,x,y);
 	    drawTarget.SetPixel(p);
 	}
+	void DrawBackground(Color p = WHITE) {
+	    for (int x = 0; x < nWindowWidth; x++) {
+		for (int y = 0; y < nWindowHeight; y++) {
+			Draw(x, y, p.red, p.green, p.blue, p.alpha);
+
+		}
+
+	}
+
+	}
+
 	void UpdateScene() {
 	    DrawScene();
 	}
@@ -30,5 +47,7 @@ class SceneManager
 	virtual void HandleKeyEvents() {}
 	virtual void HandleMouseEvents() {}
     private:
-	Sprite drawTarget;
+	Canvas drawTarget;
+	int32_t nWindowWidth;
+	int32_t nWindowHeight;
 };

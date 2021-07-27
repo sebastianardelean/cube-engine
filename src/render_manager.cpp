@@ -26,9 +26,9 @@ void RenderManager::Init(SDL_Window &window, std::string preferredRenderer)
     pSdlSurface = SDL_CreateRGBSurface(0,nWindowWidth,nWindowHeight,32,0,0,0,0);
 }
 
-void RenderManager::Prepare(Sprite s)
+void RenderManager::Prepare(Canvas c)
 {
-    sprite = s;
+    canvas = c;
 }
 
 void RenderManager::Render()
@@ -37,7 +37,7 @@ void RenderManager::Render()
 
     SDL_RenderClear(pRenderer);
 
-    surface = sprite.GetSurface();
+    surface = canvas.GetSurface();
 
     /*Map to SDL surface*/
     for (auto p:surface) {

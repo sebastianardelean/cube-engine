@@ -2,7 +2,8 @@
 
 enum InputManagerEvent: uint8_t
 {
-    Event_Quit=0,
+    Event_NoEvent=0,
+    Event_Quit,
     Event_KeyDown,
     Event_KeyUp,
     Event_MouseMotion,
@@ -24,6 +25,7 @@ enum MouseButton:uint8_t
 
 struct EventMessage {
     EventMessage() {
+        eventType = Event_NoEvent;
     }
     EventMessage(const InputManagerEvent event):eventType(event)
     {

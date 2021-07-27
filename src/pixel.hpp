@@ -10,11 +10,11 @@ struct Color
 	alpha = 0xFFu;
     }
     
-    Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha=0xFFu) {
-	red = red;
-	green = green;
-	blue = blue;
-	alpha = alpha;
+    Color(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a=0xFFu) {
+	red = r;
+	green = g;
+	blue = b;
+	alpha = a;
     }
      
     Color(uint32_t p) {

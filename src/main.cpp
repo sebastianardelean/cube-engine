@@ -1,26 +1,25 @@
 #include "engine.hpp"
 #include "scene_manager.hpp"
-class GameLogic: public SceneManager{
-    protected:
-	void DrawScene() {
-	    for (size_t x=0;x<800;x++) {
-		for (size_t y=0;y<600;y++) {
-		    Draw(x,y,rand()%256, rand()%256,rand()%256,255);
-		}
-	    }
-	}
+#include "draw.hpp"
+class GameLogic : public SceneManager {
+protected:
+  void DrawScene() {
+      draw::DrawLine(*this,0, 0, 800, 600, GREEN, 0xAA55AA55);
+      draw::DrawLine(*this,0, 0, 800, 600, GREEN, 0xAA55AA55);
+      draw::DrawLine(*this,0, 300, 800, 300, RED, 0xAA55AA55);
+      draw::DrawLine(*this,400, 0, 400, 600, BLUE, 0xAA55AA55);
+  }
 };
 
-int main(int argc,char **argv)
-{
+int main(int argc, char **argv) {
 
-    std::unique_ptr<GameLogic>game = std::make_unique<GameLogic>();
-//    std::move(uniqueptr);
-    spdlog::info("Hello World");
+  std::unique_ptr<GameLogic> game = std::make_unique<GameLogic>();
+  //    std::move(uniqueptr);
+  spdlog::info("Hello World");
 
-    cube::Engine<cube::GameConfig> engine;
-    engine.Init(std::move(game));
-    engine.Run();
-
-    return 0;
+  cube::Engine<cube::GameConfig> engine;
+  engine.Init(std::move(game));
+  engine.Run();
+  engine.Stop();
+  return 0;
 }

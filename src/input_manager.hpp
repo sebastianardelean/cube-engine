@@ -84,9 +84,11 @@ class InputManager
 		}
 		    break;
 	    }
+        if (msg.GetEventType()!=Event_NoEvent) {
+            fCallback(msg);
+        }
 
-	    fCallback(msg);
-//	    fCallback();
+
 	}
     protected:
     private:
