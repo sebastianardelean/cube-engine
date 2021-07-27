@@ -8,6 +8,10 @@ struct Color
 	green = 0xFFu;
 	blue = 0xFFu;
 	alpha = 0xFFu;
+	value.red = red;
+	value.green = green;
+	value.blue = blue;
+	value.alpha = alpha;
     }
     
     Color(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a=0xFFu) {
@@ -15,14 +19,18 @@ struct Color
 	green = g;
 	blue = b;
 	alpha = a;
+	value.red = red;
+	value.green = green;
+	value.blue = blue;
+	value.alpha = alpha;
     }
      
     Color(uint32_t p) {
-	red = (uint8_t)(p>>24);
-	green = (uint8_t)(p>>16);
-	blue = (uint8_t)(p>>8);
-	alpha = (uint8_t)p;
-
+	value.rgba = p;
+	red = value.red;
+	green = value.green;
+	blue = value.blue;
+	alpha = value.alpha;
     }
     uint8_t red;
     uint8_t green;
@@ -40,8 +48,18 @@ struct Color
 	return !(*this == c);
     }
     [[nodiscard]]uint32_t GetColor() const {
-	return ((red<<24) | green<<16 | blue<<8 | alpha);
+	return value.rgba;
     }
+    private:
+        union {
+	    uint32_t rgba;
+	    struct {
+		uint8_t red;
+		uint8_t green;
+		uint8_t blue;
+		uint8_t alpha;
+	    };
+	}value;
 };
 
 struct Pixel
