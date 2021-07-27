@@ -12,6 +12,7 @@ set(inc
 	input_manager.hpp
 	game_config.hpp
 	pixel.hpp
+	canvas.hpp
 	sprite.hpp
 	render_manager.hpp
 	input_manager_events.hpp
