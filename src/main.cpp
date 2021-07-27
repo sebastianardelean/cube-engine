@@ -8,6 +8,7 @@ protected:
       draw::DrawLine(*this,0, 0, 800, 600, GREEN, 0xAA55AA55);
       draw::DrawLine(*this,0, 300, 800, 300, RED, 0xAA55AA55);
       draw::DrawLine(*this,400, 0, 400, 600, BLUE, 0xAA55AA55);
+      draw::DrawCircle(*this,150,150,10,MAGENTA);
   }
 };
 

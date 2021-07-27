@@ -49,12 +49,16 @@ public:
     }
   }
 
-  void Stop() { SDL_Quit(); }
+  void Stop() { 
+      pWindowManager.reset(); 
+      SDL_Quit(); 
+  }
 
 protected:
 private:
   void InputManagerHandler(EventMessage e) {
     if (e.GetEventType() == Event_Quit) {
+      spdlog::info("Quiting...");
       bIsRunning = false;
     }
   }

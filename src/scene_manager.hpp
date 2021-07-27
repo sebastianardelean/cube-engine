@@ -37,6 +37,13 @@ class SceneManager
 	}
 
 	}
+	[[nodiscard]] int32_t GetWindowWidth() const {
+	    return nWindowWidth;
+	}
+	
+	[[nodiscard]] int32_t GetWindowHeight() const {
+	    return nWindowHeight;
+	}
 
 	void UpdateScene() {
 	    DrawScene();

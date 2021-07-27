@@ -107,12 +107,11 @@ void DrawLine(SceneManager &obj,const vector::vector2Di_t &pos1, const vector::v
               Color p = WHITE, Uint32 pattern = 0xFFFFFFFF) {
   DrawLine(obj,pos1.X(), pos1.Y(), pos2.X(), pos2.Y(), p, pattern);
 }
-#if 0
 // Draws a circle located at (x,y) with radius
-void DrawCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE,
+void DrawCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p = WHITE,
                 uint8_t mask = 0xFF) {
-  if (radius < 0 || x < -radius || y < -radius || x - n_WindowWidth > radius ||
-      y - n_WindowHeight > radius)
+  if (radius < 0 || x < -radius || y < -radius || x - obj.GetWindowWidth() > radius ||
+      y - obj.GetWindowHeight() > radius)
     return;
   if (radius > 0) {
     int32_t x0 = 0;
@@ -123,30 +122,30 @@ void DrawCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE,
     {
       // Draw even octants
       if (mask & 0x01)
-        Draw(x + x0, y - y0, p.value.red, p.value.green, p.value.blue,
-             p.value.alpha); // Q6 - upper right right
+        obj.Draw(x + x0, y - y0, p.red, p.green, p.blue,
+             p.alpha); // Q6 - upper right right
       if (mask & 0x04)
-        Draw(x + y0, y + x0, p.value.red, p.value.green, p.value.blue,
-             p.value.alpha); // Q4 - lower lower right
+        obj.Draw(x + y0, y + x0, p.red, p.green, p.blue,
+             p.alpha); // Q4 - lower lower right
       if (mask & 0x10)
-        Draw(x - x0, y + y0, p.value.red, p.value.green, p.value.blue,
-             p.value.alpha); // Q2 - lower left left
+        obj.Draw(x - x0, y + y0, p.red, p.green, p.blue,
+             p.alpha); // Q2 - lower left left
       if (mask & 0x40)
-        Draw(x - y0, y - x0, p.value.red, p.value.green, p.value.blue,
-             p.value.alpha); // Q0 - upper upper left
+        obj.Draw(x - y0, y - x0, p.red, p.green, p.blue,
+             p.alpha); // Q0 - upper upper left
       if (x0 != 0 && x0 != y0) {
         if (mask & 0x02)
-          Draw(x + y0, y - x0, p.value.red, p.value.green, p.value.blue,
-               p.value.alpha); // Q7 - upper upper right
+          obj.Draw(x + y0, y - x0, p.red, p.green, p.blue,
+               p.alpha); // Q7 - upper upper right
         if (mask & 0x08)
-          Draw(x + x0, y + y0, p.value.red, p.value.green, p.value.blue,
-               p.value.alpha); // Q5 - lower right right
+          obj.Draw(x + x0, y + y0, p.red, p.green, p.blue,
+               p.alpha); // Q5 - lower right right
         if (mask & 0x20)
-          Draw(x - y0, y + x0, p.value.red, p.value.green, p.value.blue,
-               p.value.alpha); // Q3 - lower lower left
+          obj.Draw(x - y0, y + x0, p.red, p.green, p.blue,
+               p.alpha); // Q3 - lower lower left
         if (mask & 0x80)
-          Draw(x - x0, y - y0, p.value.red, p.value.green, p.value.blue,
-               p.value.alpha); // Q1 - upper left left
+          obj.Draw(x - x0, y - y0, p.red, p.green, p.blue,
+               p.alpha); // Q1 - upper left left
       }
 
       if (d < 0)
@@ -155,15 +154,16 @@ void DrawCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE,
         d += 4 * (x0++ - y0--) + 10;
     }
   } else {
-    Draw(x, y, p.value.red, p.value.green, p.value.blue, p.value.alpha);
+    obj.Draw(x, y, p.red, p.green, p.blue, p.alpha);
   }
 }
 
-void DrawCircle(const vector::vector2Di_t &pos, int32_t radius, Pixel p = WHITE,
+void DrawCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius, Color p = WHITE,
                 uint8_t mask = 0xFF) {
-  DrawCircle(pos.X(), pos.Y(), radius, p, mask);
+  DrawCircle(obj,pos.X(), pos.Y(), radius, p, mask);
 }
 
+#if 0
 // Fills a circle located at (x,y) with radius
 void FillCircle(int32_t x, int32_t y, int32_t radius, Pixel p = WHITE) {
   if (radius < 0 || x < -radius || y < -radius || x - n_WindowWidth > radius ||
