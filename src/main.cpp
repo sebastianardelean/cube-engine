@@ -10,6 +10,8 @@ protected:
       draw::DrawLine(*this,400, 0, 400, 600, BLUE, 0xAA55AA55);
       draw::DrawCircle(*this,150,150,10,MAGENTA);
       draw::FillCircle(*this,400,400,120,MAGENTA);
+      draw::DrawRect(*this,250,250,250,250,BLUE);
+      draw::FillRect(*this,300,300,300,300,GREEN);
   }
 };
 

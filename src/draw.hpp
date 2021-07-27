@@ -204,33 +204,50 @@ void FillCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius
   FillCircle(obj,pos.X(), pos.Y(), radius, p);
 }
 
-#if 0
 // Draws a rectangle at (x,y) to (x+w,y+h)
-void DrawRect(int32_t x, int32_t y, int32_t w, int32_t h, Pixel p = WHITE) {
-  DrawLine(x, y, x + w, y, p);
-  DrawLine(x + w, y, x + w, y + h, p);
-  DrawLine(x + w, y + h, x, y + h, p);
-  DrawLine(x, y + h, x, y, p);
+void DrawRect(SceneManager &obj,int32_t x, int32_t y, int32_t w, int32_t h, Color p = WHITE) {
+  DrawLine(obj,x, y, x + w, y, p);
+  DrawLine(obj,x + w, y, x + w, y + h, p);
+  DrawLine(obj,x + w, y + h, x, y + h, p);
+  DrawLine(obj,x, y + h, x, y, p);
 }
 
-void DrawRect(const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
-              Pixel p = WHITE) {
-  DrawRect(pos.X(), pos.Y(), size.X(), size.Y(), p);
+void DrawRect(SceneManager &obj,const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
+              Color p = WHITE) {
+  DrawRect(obj,pos.X(), pos.Y(), size.X(), size.Y(), p);
 }
 
 // Fills a rectangle at (x,y) to (x+w,y+h)
-void FillRect(int32_t x, int32_t y, int32_t w, int32_t h, Pixel p = WHITE) {
-  SDL_Rect rectangle = {x, y, w, h};
-  SDL_Surface *surface = p_DrawTarget->GetSurface();
-  SDL_FillRect(surface, &rectangle, p.value.rgba);
-  p_DrawTarget->SetSurface(surface);
+void FillRect(SceneManager &obj,int32_t x, int32_t y, int32_t w, int32_t h, Color p = WHITE) {
+    int32_t x2 = x + w;
+    int32_t y2 = y + h;
+
+    if (x < 0) x = 0;
+    if (x >= (int32_t)obj.GetWindowWidth()) 
+	x = (int32_t)obj.GetWindowWidth();
+    if (y < 0) y = 0;
+    if (y >= (int32_t)obj.GetWindowHeight()) 
+	y = (int32_t)obj.GetWindowHeight();
+
+    if (x2 < 0) x2 = 0;
+    if (x2 >= (int32_t)obj.GetWindowWidth()) 
+	x2 = (int32_t)obj.GetWindowWidth();
+    if (y2 < 0) y2 = 0;
+    if (y2 >= (int32_t)obj.GetWindowHeight()) 
+	y2 = (int32_t)obj.GetWindowHeight();
+
+    for (int i = x; i < x2; i++)
+	for (int j = y; j < y2; j++)
+	    obj.Draw(i, j, p.red,p.green,p.blue,p.alpha);
+
 }
 
-void FillRect(const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
-              Pixel p = WHITE) {
-  FillRect(pos.X(), pos.Y(), size.X(), size.Y(), p);
+void FillRect(SceneManager &obj,const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
+              Color p = WHITE) {
+  FillRect(obj,pos.X(), pos.Y(), size.X(), size.Y(), p);
 }
 
+#if 0
 // Draws an entire sprite at well location (x,y)
 void DrawSprite(int32_t x, int32_t y, Sprite *sprite, Uint32 scale = 1,
                 uint8_t flip = 0u) {
