@@ -8,11 +8,15 @@ class RenderManager
 	}
 	~RenderManager()
 	{
-	    if (pRenderer != nullptr) {
-	       SDL_DestroyRenderer(pRenderer);
+	    if(pSdlSurface != nullptr) {
+		SDL_FreeSurface(pSdlSurface);
 	    }
+	
 	    if (pTexture != nullptr) {
 	       SDL_DestroyTexture(pTexture);
+	    }
+	    if (pRenderer != nullptr) {
+	       SDL_DestroyRenderer(pRenderer);
 	    }
 	}
 	RenderManager(const RenderManager &)=delete;
