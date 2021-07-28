@@ -9,6 +9,7 @@ namespace cube {
 struct GameConfig;
 //    struct Color;
 //    struct Pixel;
+//    struct Sprite;
 template <typename Config> class Engine;
 
 }; // namespace cube
@@ -27,6 +28,7 @@ public:
   Engine(Engine &&) = delete;
   Engine &operator=(const Engine &) = delete;
   Engine &operator=(Engine &&) = delete;
+
   void Init(std::unique_ptr<SceneManager> scene) {
     pSceneManager = std::move(scene);
     pWindowManager->Init(config.title, config.width, config.height);
@@ -36,6 +38,9 @@ public:
 
     pRenderManager->Init(pWindowManager->GetSdlWindow(), "opengl");
     pSceneManager->Init(config.width, config.height);
+    pErrorManager->RegisterCallback(
+	    std::bind(&cube::Engine<Config>::ErrorManagerHandler, this,
+		std::placeholders::_1));
     bIsRunning = true;
   }
 
@@ -61,6 +66,9 @@ private:
       spdlog::info("Quiting...");
       bIsRunning = false;
     }
+  }
+
+  void ErrorManagerHandler(int16_t errorCode) {
   }
 
   Config config;
