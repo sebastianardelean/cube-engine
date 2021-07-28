@@ -30,10 +30,12 @@ struct Sprite
 	}
     }
 
-    Pixel GetPixel() const {
+    Pixel GetPixel(int32_t posX,int32_t posY) const {
+	return surface[posY*spriteWidth+posX];
     }
 
     void SetPixel(Pixel p) {
+	surface[p.posY*spriteWidth+p.posX].color = p.color;
     }
     uint32_t spriteHeight;
     uint32_t spriteWidth;
