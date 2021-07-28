@@ -42,6 +42,4 @@ struct Sprite
     int32_t posX;
     int32_t posY;
     std::vector<Pixel> surface;
-    enum Mode {NORMAL,PERIODIC};
-    enum Flip {NONE=0,HORIZONTAL=1,VERTICAL=2};
 };
