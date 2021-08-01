@@ -7,9 +7,6 @@
 namespace cube {
 
 struct GameConfig;
-//    struct Color;
-//    struct Pixel;
-//    struct Sprite;
 template <typename Config> class Engine;
 
 }; // namespace cube
@@ -31,8 +28,8 @@ public:
 
   void Init(std::unique_ptr<SceneManager> scene) {
     pErrorManager.lock()->RegisterCallback(
-	    std::bind(&cube::Engine<Config>::ErrorManagerHandler, this,
-		std::placeholders::_1));
+        std::bind(&cube::Engine<Config>::ErrorManagerHandler, this,
+                  std::placeholders::_1));
     pSceneManager = std::move(scene);
     pWindowManager->Init(config.title, config.width, config.height);
     pInputManager->RegisterCallback(
@@ -54,9 +51,9 @@ public:
     }
   }
 
-  void Stop() { 
-      pWindowManager.reset(); 
-      SDL_Quit(); 
+  void Stop() {
+    pWindowManager.reset();
+    SDL_Quit();
   }
 
 protected:
@@ -70,10 +67,10 @@ private:
 
   void ErrorManagerHandler(ErrorEvent error) {
     if (error.GetErrorCode() == Event_FatalError ||
-	    error.GetErrorCode() == Event_SdlError) {
-	spdlog::info("Quiting...");
-	bIsRunning = false;
-	Stop();
+        error.GetErrorCode() == Event_SdlError) {
+      spdlog::info("Quiting...");
+      bIsRunning = false;
+      Stop();
     }
   }
 

@@ -1,11 +1,11 @@
 #pragma once
 #include "pixel.hpp"
-#include "vector2d.hpp"
 #include "scene_manager.hpp"
+#include "vector2d.hpp"
 namespace draw {
 
-void DrawLine(SceneManager &obj,int32_t x1, int32_t y1, int32_t x2, int32_t y2, Color p = WHITE,
-              Uint32 pattern = 0xFFFFFFFF) {
+void DrawLine(SceneManager &obj, int32_t x1, int32_t y1, int32_t x2, int32_t y2,
+              Color p = WHITE, Uint32 pattern = 0xFFFFFFFF) {
   auto rol = [&](void) {
     pattern = (pattern << 1) | (pattern >> 31);
     return pattern & 1;
@@ -103,15 +103,16 @@ void DrawLine(SceneManager &obj,int32_t x1, int32_t y1, int32_t x2, int32_t y2, 
   }
 }
 
-void DrawLine(SceneManager &obj,const vector::vector2Di_t &pos1, const vector::vector2Di_t &pos2,
-              Color p = WHITE, Uint32 pattern = 0xFFFFFFFF) {
-  DrawLine(obj,pos1.X(), pos1.Y(), pos2.X(), pos2.Y(), p, pattern);
+void DrawLine(SceneManager &obj, const vector::vector2Di_t &pos1,
+              const vector::vector2Di_t &pos2, Color p = WHITE,
+              Uint32 pattern = 0xFFFFFFFF) {
+  DrawLine(obj, pos1.X(), pos1.Y(), pos2.X(), pos2.Y(), p, pattern);
 }
 // Draws a circle located at (x,y) with radius
-void DrawCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p = WHITE,
-                uint8_t mask = 0xFF) {
-  if (radius < 0 || x < -radius || y < -radius || x - obj.GetWindowWidth() > radius ||
-      y - obj.GetWindowHeight() > radius)
+void DrawCircle(SceneManager &obj, int32_t x, int32_t y, int32_t radius,
+                Color p = WHITE, uint8_t mask = 0xFF) {
+  if (radius < 0 || x < -radius || y < -radius ||
+      x - obj.GetWindowWidth() > radius || y - obj.GetWindowHeight() > radius)
     return;
   if (radius > 0) {
     int32_t x0 = 0;
@@ -123,29 +124,29 @@ void DrawCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p 
       // Draw even octants
       if (mask & 0x01)
         obj.Draw(x + x0, y - y0, p.red, p.green, p.blue,
-             p.alpha); // Q6 - upper right right
+                 p.alpha); // Q6 - upper right right
       if (mask & 0x04)
         obj.Draw(x + y0, y + x0, p.red, p.green, p.blue,
-             p.alpha); // Q4 - lower lower right
+                 p.alpha); // Q4 - lower lower right
       if (mask & 0x10)
         obj.Draw(x - x0, y + y0, p.red, p.green, p.blue,
-             p.alpha); // Q2 - lower left left
+                 p.alpha); // Q2 - lower left left
       if (mask & 0x40)
         obj.Draw(x - y0, y - x0, p.red, p.green, p.blue,
-             p.alpha); // Q0 - upper upper left
+                 p.alpha); // Q0 - upper upper left
       if (x0 != 0 && x0 != y0) {
         if (mask & 0x02)
           obj.Draw(x + y0, y - x0, p.red, p.green, p.blue,
-               p.alpha); // Q7 - upper upper right
+                   p.alpha); // Q7 - upper upper right
         if (mask & 0x08)
           obj.Draw(x + x0, y + y0, p.red, p.green, p.blue,
-               p.alpha); // Q5 - lower right right
+                   p.alpha); // Q5 - lower right right
         if (mask & 0x20)
           obj.Draw(x - y0, y + x0, p.red, p.green, p.blue,
-               p.alpha); // Q3 - lower lower left
+                   p.alpha); // Q3 - lower lower left
         if (mask & 0x80)
           obj.Draw(x - x0, y - y0, p.red, p.green, p.blue,
-               p.alpha); // Q1 - upper left left
+                   p.alpha); // Q1 - upper left left
       }
 
       if (d < 0)
@@ -158,15 +159,16 @@ void DrawCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p 
   }
 }
 
-void DrawCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius, Color p = WHITE,
-                uint8_t mask = 0xFF) {
-  DrawCircle(obj,pos.X(), pos.Y(), radius, p, mask);
+void DrawCircle(SceneManager &obj, const vector::vector2Di_t &pos,
+                int32_t radius, Color p = WHITE, uint8_t mask = 0xFF) {
+  DrawCircle(obj, pos.X(), pos.Y(), radius, p, mask);
 }
 
 // Fills a circle located at (x,y) with radius
-void FillCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p = WHITE) {
-  if (radius < 0 || x < -radius || y < -radius || x - obj.GetWindowWidth() > radius ||
-      y - obj.GetWindowHeight() > radius)
+void FillCircle(SceneManager &obj, int32_t x, int32_t y, int32_t radius,
+                Color p = WHITE) {
+  if (radius < 0 || x < -radius || y < -radius ||
+      x - obj.GetWindowWidth() > radius || y - obj.GetWindowHeight() > radius)
     return;
 
   if (radius > 0) {
@@ -199,52 +201,57 @@ void FillCircle(SceneManager &obj,int32_t x, int32_t y, int32_t radius, Color p 
   }
 }
 
-void FillCircle(SceneManager &obj,const vector::vector2Di_t &pos, int32_t radius,
-                Color p = WHITE) {
-  FillCircle(obj,pos.X(), pos.Y(), radius, p);
+void FillCircle(SceneManager &obj, const vector::vector2Di_t &pos,
+                int32_t radius, Color p = WHITE) {
+  FillCircle(obj, pos.X(), pos.Y(), radius, p);
 }
 
 // Draws a rectangle at (x,y) to (x+w,y+h)
-void DrawRect(SceneManager &obj,int32_t x, int32_t y, int32_t w, int32_t h, Color p = WHITE) {
-  DrawLine(obj,x, y, x + w, y, p);
-  DrawLine(obj,x + w, y, x + w, y + h, p);
-  DrawLine(obj,x + w, y + h, x, y + h, p);
-  DrawLine(obj,x, y + h, x, y, p);
+void DrawRect(SceneManager &obj, int32_t x, int32_t y, int32_t w, int32_t h,
+              Color p = WHITE) {
+  DrawLine(obj, x, y, x + w, y, p);
+  DrawLine(obj, x + w, y, x + w, y + h, p);
+  DrawLine(obj, x + w, y + h, x, y + h, p);
+  DrawLine(obj, x, y + h, x, y, p);
 }
 
-void DrawRect(SceneManager &obj,const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
-              Color p = WHITE) {
-  DrawRect(obj,pos.X(), pos.Y(), size.X(), size.Y(), p);
+void DrawRect(SceneManager &obj, const vector::vector2Di_t &pos,
+              const vector::vector2Di_t &size, Color p = WHITE) {
+  DrawRect(obj, pos.X(), pos.Y(), size.X(), size.Y(), p);
 }
 
 // Fills a rectangle at (x,y) to (x+w,y+h)
-void FillRect(SceneManager &obj,int32_t x, int32_t y, int32_t w, int32_t h, Color p = WHITE) {
-    int32_t x2 = x + w;
-    int32_t y2 = y + h;
+void FillRect(SceneManager &obj, int32_t x, int32_t y, int32_t w, int32_t h,
+              Color p = WHITE) {
+  int32_t x2 = x + w;
+  int32_t y2 = y + h;
 
-    if (x < 0) x = 0;
-    if (x >= (int32_t)obj.GetWindowWidth()) 
-	x = (int32_t)obj.GetWindowWidth();
-    if (y < 0) y = 0;
-    if (y >= (int32_t)obj.GetWindowHeight()) 
-	y = (int32_t)obj.GetWindowHeight();
+  if (x < 0)
+    x = 0;
+  if (x >= (int32_t)obj.GetWindowWidth())
+    x = (int32_t)obj.GetWindowWidth();
+  if (y < 0)
+    y = 0;
+  if (y >= (int32_t)obj.GetWindowHeight())
+    y = (int32_t)obj.GetWindowHeight();
 
-    if (x2 < 0) x2 = 0;
-    if (x2 >= (int32_t)obj.GetWindowWidth()) 
-	x2 = (int32_t)obj.GetWindowWidth();
-    if (y2 < 0) y2 = 0;
-    if (y2 >= (int32_t)obj.GetWindowHeight()) 
-	y2 = (int32_t)obj.GetWindowHeight();
+  if (x2 < 0)
+    x2 = 0;
+  if (x2 >= (int32_t)obj.GetWindowWidth())
+    x2 = (int32_t)obj.GetWindowWidth();
+  if (y2 < 0)
+    y2 = 0;
+  if (y2 >= (int32_t)obj.GetWindowHeight())
+    y2 = (int32_t)obj.GetWindowHeight();
 
-    for (int i = x; i < x2; i++)
-	for (int j = y; j < y2; j++)
-	    obj.Draw(i, j, p.red,p.green,p.blue,p.alpha);
-
+  for (int i = x; i < x2; i++)
+    for (int j = y; j < y2; j++)
+      obj.Draw(i, j, p.red, p.green, p.blue, p.alpha);
 }
 
-void FillRect(SceneManager &obj,const vector::vector2Di_t &pos, const vector::vector2Di_t &size,
-              Color p = WHITE) {
-  FillRect(obj,pos.X(), pos.Y(), size.X(), size.Y(), p);
+void FillRect(SceneManager &obj, const vector::vector2Di_t &pos,
+              const vector::vector2Di_t &size, Color p = WHITE) {
+  FillRect(obj, pos.X(), pos.Y(), size.X(), size.Y(), p);
 }
 
 #if 0
