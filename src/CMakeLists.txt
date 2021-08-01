@@ -1,7 +1,7 @@
 # Generic test that uses conan libs
 
 set(src 
-        main.cpp 
+    #        main.cpp 
     	window_manager.cpp
 	render_manager.cpp
 	error_manager.cpp
@@ -24,10 +24,11 @@ set(inc
 
 
 
-add_executable(intro ${src} ${inc})
+#add_executable(intro ${src} ${inc})
+add_library(cube SHARED ${src} ${inc})
 #target_include_directories(intro ${SDL2_INCLUDE_DIR})
 target_link_libraries(
-  intro
+  cube
   PRIVATE project_options
 	  SDL2::SDL2
 	  SDL2::SDL2main
