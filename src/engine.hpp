@@ -18,7 +18,7 @@ template <typename Config> class cube::Engine {
 public:
   Engine() {
 
-    pErrorManager = std::make_unique<ErrorManager>();
+    pErrorManager = ErrorManager::GetInstance();
     pWindowManager = std::make_unique<WindowManager>();
     pInputManager = std::make_unique<InputManager>();
     pRenderManager =
@@ -30,6 +30,9 @@ public:
   Engine &operator=(Engine &&) = delete;
 
   void Init(std::unique_ptr<SceneManager> scene) {
+    pErrorManager.lock()->RegisterCallback(
+	    std::bind(&cube::Engine<Config>::ErrorManagerHandler, this,
+		std::placeholders::_1));
     pSceneManager = std::move(scene);
     pWindowManager->Init(config.title, config.width, config.height);
     pInputManager->RegisterCallback(
@@ -38,9 +41,6 @@ public:
 
     pRenderManager->Init(pWindowManager->GetSdlWindow(), "opengl");
     pSceneManager->Init(config.width, config.height);
-    pErrorManager->RegisterCallback(
-	    std::bind(&cube::Engine<Config>::ErrorManagerHandler, this,
-		std::placeholders::_1));
     bIsRunning = true;
   }
 
@@ -68,11 +68,16 @@ private:
     }
   }
 
-  void ErrorManagerHandler(int16_t errorCode) {
+  void ErrorManagerHandler(ErrorEvent error) {
+    if (error.GetErrorCode() == Event_FatalError) {
+	spdlog::info("Quiting...");
+	bIsRunning = false;
+	Stop();
+    }
   }
 
   Config config;
-  std::unique_ptr<ErrorManager> pErrorManager;
+  std::weak_ptr<ErrorManager> pErrorManager;
   std::unique_ptr<WindowManager> pWindowManager;
   std::unique_ptr<InputManager> pInputManager;
   std::unique_ptr<RenderManager> pRenderManager;

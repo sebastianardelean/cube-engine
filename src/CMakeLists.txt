@@ -4,6 +4,7 @@ set(src
         main.cpp 
     	window_manager.cpp
 	render_manager.cpp
+	error_manager.cpp
     )
 set(inc 
 	engine.hpp

@@ -1,5 +1,5 @@
 #include "window_manager.hpp"
-
+#include "error_manager.hpp"
 
 WindowManager::WindowManager()
 {
@@ -25,9 +25,8 @@ void WindowManager::Init(std::string title,
 	flags |= SDL_WINDOW_FULLSCREEN;
 
     }
-
     if (SDL_Init(SDL_INIT_EVERYTHING) !=0 ) {
-	//TODO:Error message SDLInit
+	ErrorManager::GetInstance()->StoreError(ErrorEvent(Event_SdlError,"SDL init error."));	
     }
     else {
 	pWindow = SDL_CreateWindow(
@@ -39,7 +38,7 @@ void WindowManager::Init(std::string title,
 		flags
 		);
 	if (pWindow == nullptr) {
-	    //TODO: Error message
+	    ErrorManager::GetInstance()->StoreError(ErrorEvent(Event_SdlError,"SDL window is NULL"));	
 	}
     }
 }

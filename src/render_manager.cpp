@@ -1,5 +1,5 @@
 #include "render_manager.hpp"
-
+#include "error_manager.hpp"
 void RenderManager::Init(SDL_Window &window, std::string preferredRenderer)
 {
 
@@ -22,6 +22,9 @@ void RenderManager::Init(SDL_Window &window, std::string preferredRenderer)
 		SDL_TEXTUREACCESS_TARGET,
 		nWindowWidth,
 		nWindowHeight);
+    }
+    else {
+	ErrorManager::GetInstance()->StoreError(ErrorEvent(Event_SdlError,"SDL renderer not created."));	
     }
     pSdlSurface = SDL_CreateRGBSurface(0,nWindowWidth,nWindowHeight,32,0,0,0,0);
 }
