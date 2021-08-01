@@ -69,7 +69,8 @@ private:
   }
 
   void ErrorManagerHandler(ErrorEvent error) {
-    if (error.GetErrorCode() == Event_FatalError) {
+    if (error.GetErrorCode() == Event_FatalError ||
+	    error.GetErrorCode() == Event_SdlError) {
 	spdlog::info("Quiting...");
 	bIsRunning = false;
 	Stop();
