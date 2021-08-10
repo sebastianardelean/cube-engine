@@ -1,8 +1,11 @@
 bin/*
 CMakeFiles/*
-src/CMakeFiles/*
-src/*.cmake
-src/Makefile
+src/tools/CMakeFiles/*
+src/tools/*.cmake
+src/tools/Makefile
+src/engine/CMakeFiles/*
+src/engine/*.cmake
+src/engine/Makefile
 Makefile
 *.cmake
 CMakeCache.txt

@@ -7,11 +7,11 @@ macro(run_conan)
 
   include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-  conan_add_remote(
-    NAME
-    bincrafters
-    URL
-    https://bincrafters.jfrog.io/artifactory/api/conan/public-conan)
+   conan_add_remote(
+      NAME
+      bincrafters
+      URL
+      https://bincrafters.jfrog.io/artifactory/api/conan/public-conan)
     #    https://api.bintray.com/conan/bincrafters/public-conan)
 
   conan_cmake_run(
@@ -21,6 +21,7 @@ macro(run_conan)
     docopt.cpp/0.6.3
     fmt/7.1.3
     spdlog/1.8.5
+    #    wxWidgets/3.1.5
     OPTIONS
     ${CONAN_EXTRA_OPTIONS}
     BASIC_SETUP

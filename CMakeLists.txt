@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 
 #set(CMAKE_C_COMPILER "clang")
 #set(CMAKE_CXX_COMPILER "clang++")
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 # Set the project name to your project name, my project isn't very descriptive
@@ -26,8 +26,8 @@ option(ENABLE_TESTING "Enable Test Builds" ON)
 option(ENABLE_FUZZING "Enable Fuzzing Builds" OFF)
 option(ENABLE_PCH "Enable Precompiled Headers" ON)
 
-
 find_package(SDL2 REQUIRED)
+
 # Very basic PCH example
 if(ENABLE_PCH)
   # This sets a global PCH parameter, each project will build its own PCH, which is a good idea if any #define's change
@@ -63,5 +63,5 @@ include(cmake/Conan.cmake)
 run_conan()
 
 
-add_subdirectory(src)
-
+add_subdirectory(src/engine)
+add_subdirectory(src/tools/sprite-editor)
