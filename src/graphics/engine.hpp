@@ -20,6 +20,9 @@ private:
     void Draw();
     void Update();
     void InputEventHandler(SDL_Event &event);
+    std::chrono::time_point<std::chrono::system_clock> timePoint1, timePoint2;
+    float f_ElapsedTime, f_LastElapsedTime, f_FrameTimer;
+    std::uint64_t n_FrameCounter, n_LastFPS;
 
 
     class SdlGlobalInitializer

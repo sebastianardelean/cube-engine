@@ -43,11 +43,32 @@ void cube::Engine::Run(cube::GameScene &game) {
       //Render
 
     while(bIsRunning) {
+        timePoint2 = std::chrono::system_clock::now();
+        std::chrono::duration<float> elapsedTime = timePoint2 - timePoint1;
+        timePoint1 = timePoint2;
+
+        f_ElapsedTime = elapsedTime.count();
+        f_LastElapsedTime = f_ElapsedTime;
+
         p_RenderManager->PrepareScene();
         p_EventHandler->PollEvent();
+
         game.UpdateScene();
         game.GetPixelsAndPitch(gamePixels,&pitch);
+
         p_RenderManager->Render(gamePixels,pitch);
+
+
+
+        f_FrameTimer += f_ElapsedTime;
+        n_FrameCounter++;
+        if (f_FrameTimer >= 1.0f) {
+            n_LastFPS = n_FrameCounter;
+            f_FrameTimer -= 1.0f;
+            std::string fpsInfo = "FPS "+std::to_string(n_FrameCounter);
+            LoggerManager::GetInstance().GetLogger()->info(fpsInfo);
+            n_FrameCounter = 0;
+        }
     }
     delete [] gamePixels;
 

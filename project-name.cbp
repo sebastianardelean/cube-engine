@@ -5,7 +5,7 @@
 		<Option title="project-name"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\;CMake Files\cmake\;CMake Files\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/mihai/Development/cube-engine"/>
@@ -46,16 +46,46 @@
 				<Compiler>
 					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/SDL2"/>
+					<Add option="-D_REENTRANT"/>
+					<Add option="-DFLAC__NO_DLL"/>
+					<Add option="-D_DEFAULT_SOURCE"/>
+					<Add option="-D_BSD_SOURCE"/>
+					<Add option="-DHAS_FCHOWN"/>
+					<Add option="-DHAS_STICKY_DIR_BIT"/>
+					<Add option="-DLIBXML_STATIC"/>
+					<Add option="-DLZMA_API_STATIC"/>
 					<Add directory="/home/mihai/.conan/data/fmt/7.1.3/_/_/package/0d8b943d676dc202f180a2598d04457e173d7b97/include"/>
 					<Add directory="/home/mihai/.conan/data/spdlog/1.8.5/_/_/package/4fc31fffd001bc6c35957705f007b7661bf62c98/include"/>
+					<Add directory="/home/mihai/.conan/data/sdl/2.0.16/_/_/package/8c71ccfe62f72e1d03ce55d013ccd0ee84662fb8/include"/>
+					<Add directory="/home/mihai/.conan/data/sdl/2.0.16/_/_/package/8c71ccfe62f72e1d03ce55d013ccd0ee84662fb8/include/SDL2"/>
+					<Add directory="/home/mihai/.conan/data/libiconv/1.17/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libalsa/1.2.5.1/_/_/package/e01c0e0863dd806686e29ee6cd2b7479763e9f6d/include"/>
+					<Add directory="/home/mihai/.conan/data/pulseaudio/14.2/_/_/package/b297644c74144cc649988b5c7507a26c2ab8b2d0/include"/>
+					<Add directory="/home/mihai/.conan/data/libsndfile/1.0.31/_/_/package/87d64c3335232fb005946d21028137c1bd104dff/include"/>
+					<Add directory="/home/mihai/.conan/data/ogg/1.3.5/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/vorbis/1.3.7/_/_/package/f692c4ba9c4f7620ed1dc82ed4b766f983d34058/include"/>
+					<Add directory="/home/mihai/.conan/data/flac/1.3.3/_/_/package/8d4fa24c955f1ae1c6bfefbbcc9c322821e2db09/include"/>
+					<Add directory="/home/mihai/.conan/data/opus/1.3.1/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/opus/1.3.1/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include/opus"/>
+					<Add directory="/home/mihai/.conan/data/libcap/2.62/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libtool/2.4.6/_/_/package/87887b83a716acb0d7689f12705d83449533a7bc/include"/>
+					<Add directory="/usr/include/uuid"/>
+					<Add directory="/home/mihai/.conan/data/openssl/1.1.1q/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/nas/1.9.4/_/_/package/ab481230989a38da50faf4c8b872d9f60af3210a/include"/>
+					<Add directory="/home/mihai/.conan/data/wayland/1.20.0/_/_/package/b7420412cde532571d175c75165067909f090733/include"/>
+					<Add directory="/home/mihai/.conan/data/xkbcommon/1.4.0/_/_/package/29e1ea9d8aaf9cd3def69281221947fcf3e6617f/include"/>
+					<Add directory="/home/mihai/.conan/data/libxml2/2.9.14/_/_/package/ea5251febc71a3694bfa09b9c5fd421bcf237034/include"/>
+					<Add directory="/home/mihai/.conan/data/libxml2/2.9.14/_/_/package/ea5251febc71a3694bfa09b9c5fd421bcf237034/include/libxml2"/>
+					<Add directory="/home/mihai/.conan/data/zlib/1.2.12/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libunwind/1.6.2/_/_/package/ae33547ec9142ab55feeba3db4398807e10972ee/include"/>
+					<Add directory="/home/mihai/.conan/data/xz_utils/5.2.5/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 intro"/>
@@ -73,16 +103,46 @@
 				<Compiler>
 					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/SDL2"/>
+					<Add option="-D_REENTRANT"/>
+					<Add option="-DFLAC__NO_DLL"/>
+					<Add option="-D_DEFAULT_SOURCE"/>
+					<Add option="-D_BSD_SOURCE"/>
+					<Add option="-DHAS_FCHOWN"/>
+					<Add option="-DHAS_STICKY_DIR_BIT"/>
+					<Add option="-DLIBXML_STATIC"/>
+					<Add option="-DLZMA_API_STATIC"/>
 					<Add directory="/home/mihai/.conan/data/fmt/7.1.3/_/_/package/0d8b943d676dc202f180a2598d04457e173d7b97/include"/>
 					<Add directory="/home/mihai/.conan/data/spdlog/1.8.5/_/_/package/4fc31fffd001bc6c35957705f007b7661bf62c98/include"/>
+					<Add directory="/home/mihai/.conan/data/sdl/2.0.16/_/_/package/8c71ccfe62f72e1d03ce55d013ccd0ee84662fb8/include"/>
+					<Add directory="/home/mihai/.conan/data/sdl/2.0.16/_/_/package/8c71ccfe62f72e1d03ce55d013ccd0ee84662fb8/include/SDL2"/>
+					<Add directory="/home/mihai/.conan/data/libiconv/1.17/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libalsa/1.2.5.1/_/_/package/e01c0e0863dd806686e29ee6cd2b7479763e9f6d/include"/>
+					<Add directory="/home/mihai/.conan/data/pulseaudio/14.2/_/_/package/b297644c74144cc649988b5c7507a26c2ab8b2d0/include"/>
+					<Add directory="/home/mihai/.conan/data/libsndfile/1.0.31/_/_/package/87d64c3335232fb005946d21028137c1bd104dff/include"/>
+					<Add directory="/home/mihai/.conan/data/ogg/1.3.5/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/vorbis/1.3.7/_/_/package/f692c4ba9c4f7620ed1dc82ed4b766f983d34058/include"/>
+					<Add directory="/home/mihai/.conan/data/flac/1.3.3/_/_/package/8d4fa24c955f1ae1c6bfefbbcc9c322821e2db09/include"/>
+					<Add directory="/home/mihai/.conan/data/opus/1.3.1/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/opus/1.3.1/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include/opus"/>
+					<Add directory="/home/mihai/.conan/data/libcap/2.62/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libtool/2.4.6/_/_/package/87887b83a716acb0d7689f12705d83449533a7bc/include"/>
+					<Add directory="/usr/include/uuid"/>
+					<Add directory="/home/mihai/.conan/data/openssl/1.1.1q/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/nas/1.9.4/_/_/package/ab481230989a38da50faf4c8b872d9f60af3210a/include"/>
+					<Add directory="/home/mihai/.conan/data/wayland/1.20.0/_/_/package/b7420412cde532571d175c75165067909f090733/include"/>
+					<Add directory="/home/mihai/.conan/data/xkbcommon/1.4.0/_/_/package/29e1ea9d8aaf9cd3def69281221947fcf3e6617f/include"/>
+					<Add directory="/home/mihai/.conan/data/libxml2/2.9.14/_/_/package/ea5251febc71a3694bfa09b9c5fd421bcf237034/include"/>
+					<Add directory="/home/mihai/.conan/data/libxml2/2.9.14/_/_/package/ea5251febc71a3694bfa09b9c5fd421bcf237034/include/libxml2"/>
+					<Add directory="/home/mihai/.conan/data/zlib/1.2.12/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
+					<Add directory="/home/mihai/.conan/data/libunwind/1.6.2/_/_/package/ae33547ec9142ab55feeba3db4398807e10972ee/include"/>
+					<Add directory="/home/mihai/.conan/data/xz_utils/5.2.5/_/_/package/d13c97721d7bdc192ca6529684f2b79beeae8a7c/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 intro/fast"/>
@@ -157,24 +217,6 @@
 		</Unit>
 		<Unit filename="/home/mihai/Development/cube-engine/conanbuildinfo.cmake">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Config.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2ConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Targets-noconfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Targets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2mainTargets-noconfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2mainTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
 		</Unit>
 		<Unit filename="/home/mihai/Development/cube-engine/cmake/Conan.cmake">
 			<Option virtualFolder="CMake Files\cmake\"/>

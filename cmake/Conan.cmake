@@ -17,11 +17,14 @@ macro(run_conan)
   conan_cmake_run(
     REQUIRES
     ${CONAN_EXTRA_REQUIRES}
-    catch2/2.13.4
-    docopt.cpp/0.6.3
-    fmt/7.1.3
+#    catch2/2.13.4
+#    docopt.cpp/0.6.3
+#    fmt/7.1.3
     spdlog/1.8.5
-    sfml/2.5.1
+    sdl/2.0.16
+    sdl_ttf/2.0.15
+    libffi/3.4.2
+    libiconv/1.17
     OPTIONS
     ${CONAN_EXTRA_OPTIONS}
     BASIC_SETUP
