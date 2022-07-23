@@ -1,4 +1,5 @@
 bin/*
+.idea/
 CMakeFiles/*
 src/CMakeFiles/*
 src/*.cmake
@@ -10,3 +11,5 @@ conan*
 *.json
 tags
 Lib/*
+cmake-build-release/
+cmake-build-debug/

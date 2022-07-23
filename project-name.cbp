@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="project-name"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\;CMake Files\cmake\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/mihai/Development/cube-engine"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mihai/Development/cube-engine"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/mihai/Development/cube-engine"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="intro">
+				<Option output="/home/mihai/Development/cube-engine/bin/intro" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mihai/Development/cube-engine/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/mihai/.conan/data/fmt/7.1.3/_/_/package/0d8b943d676dc202f180a2598d04457e173d7b97/include"/>
+					<Add directory="/home/mihai/.conan/data/spdlog/1.8.5/_/_/package/4fc31fffd001bc6c35957705f007b7661bf62c98/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 intro"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="intro/fast">
+				<Option output="/home/mihai/Development/cube-engine/bin/intro" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mihai/Development/cube-engine/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/mihai/.conan/data/fmt/7.1.3/_/_/package/0d8b943d676dc202f180a2598d04457e173d7b97/include"/>
+					<Add directory="/home/mihai/.conan/data/spdlog/1.8.5/_/_/package/4fc31fffd001bc6c35957705f007b7661bf62c98/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/../../../../include/c++/12.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 intro/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mihai/Development/cube-engine/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/mihai/Development/cube-engine/src/CMakeFiles/intro.dir/cmake_pch.hxx">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/CMakeFiles/intro.dir/cmake_pch.hxx.cxx">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/cube.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/engine.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/engine.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/event_handler.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/event_handler.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/game_scene.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/game_scene.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/render_manager.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/render_manager.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/main.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/sprite.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/sprite.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/utils/cube_exceptions.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/utils/logger_manager.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/utils/logger_manager.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/utils/utils.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/utils/utils.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/conan.cmake">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/conanbuildinfo.cmake">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2mainTargets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/../../../../usr/lib64/cmake/SDL2/SDL2mainTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\SDL2\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/cmake/Conan.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

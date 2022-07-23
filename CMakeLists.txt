@@ -37,6 +37,7 @@ if(ENABLE_PCH)
     project_options
     INTERFACE
     <complex>
+    <atomic>
     <memory>
     <vector>
     <exception>

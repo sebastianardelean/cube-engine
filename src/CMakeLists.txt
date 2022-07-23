@@ -1,26 +1,26 @@
 # Generic test that uses conan libs
 
 set(src 
-        main.cpp 
-    	window_manager.cpp
-	render_manager.cpp
-	error_manager.cpp
-    )
-set(inc 
-	engine.hpp
-	window_manager.hpp
-	error_manager.hpp
-	input_manager.hpp
-	game_config.hpp
-	pixel.hpp
-	canvas.hpp
-	sprite.hpp
-	render_manager.hpp
-	input_manager_events.hpp
-	scene_manager.hpp
-	vector2d.hpp
-	draw.hpp
-    )
+    	main.cpp
+        graphics/engine.cpp
+        utils/utils.cpp
+		utils/logger_manager.cpp
+        graphics/event_handler.cpp
+        graphics/game_scene.cpp
+        graphics/render_manager.cpp
+		sprite.cpp
+		)
+set(inc
+		cube.hpp
+        graphics/engine.hpp
+        utils/utils.hpp
+		utils/cube_exceptions.hpp
+		utils/logger_manager.hpp
+        graphics/event_handler.hpp
+        graphics/game_scene.hpp
+        graphics/render_manager.hpp
+		sprite.hpp
+		)
 
 
 
@@ -29,8 +29,8 @@ add_executable(intro ${src} ${inc})
 target_link_libraries(
   intro
   PRIVATE project_options
-	  SDL2::SDL2
-	  SDL2::SDL2main
+		  SDL2::SDL2
+		  SDL2::SDL2main
           CONAN_PKG::fmt
           CONAN_PKG::spdlog 
 	  )
