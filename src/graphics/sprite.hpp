@@ -1,7 +1,7 @@
 #pragma once
-#include "cube.hpp"
+#include "../cube.hpp"
 
-class cube::Sprite
+class Sprite
 {
 public:
     Sprite(const std::string &path) ;

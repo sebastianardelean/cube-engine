@@ -205,19 +205,22 @@
 		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/render_manager.hpp">
 			<Option target="intro"/>
 		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/sprite.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/sprite.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/text.cpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/graphics/text.hpp">
+			<Option target="intro"/>
+		</Unit>
 		<Unit filename="/home/mihai/Development/cube-engine/src/main.cpp">
 			<Option target="intro"/>
 		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/src/sprite.cpp">
-			<Option target="intro"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/src/sprite.hpp">
-			<Option target="intro"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/src/text.cpp">
-			<Option target="intro"/>
-		</Unit>
-		<Unit filename="/home/mihai/Development/cube-engine/src/text.hpp">
+		<Unit filename="/home/mihai/Development/cube-engine/src/pixel.hpp">
 			<Option target="intro"/>
 		</Unit>
 		<Unit filename="/home/mihai/Development/cube-engine/src/utils/cube_exceptions.hpp">

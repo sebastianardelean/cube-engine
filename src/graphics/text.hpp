@@ -14,7 +14,7 @@ public:
     class Font
     {
     public:
-        Font(const std::string &filePath, int ptSize, int fontStyle,int hinting=TTF_HINTING_NORMAL, int fontOutline = 0);
+        Font(const std::string &filePath, int ptSize, int fontStyle,int hinting=TTF_HINTING_NORMAL);
         ~Font();
         Font(const Font &) = delete;
         Font(Font &&) = delete;
@@ -30,14 +30,10 @@ public:
         TextRenderShaded,
         TextRenderBlended
     };
-    enum class ETextRenderType: std::uint8_t {
-        TextRender_LATIN1,
-        TextRender_UTF8,
-        TextRender_UNICODE
-    };
+
     void SetRenderMethod (const ETextRenderMethod& renderMethod);
-    void SetRenderType(const ETextRenderType& renderType);
-    void SetText(int x, int y, int w, int h,const std::string &text, Text::Font& font,const cube::CubeColor& fg, const cube::CubeColor& bg);
+
+    SDL_Surface* SetText(int x, int y, const std::string &text, Text::Font& font, const cube::color_t& fg, const cube::color_t& bg);
 
 private:
 
@@ -53,7 +49,7 @@ private:
     };
     std::unique_ptr<SdlTTFGlobalInitializer> p_SdlTTFGlobalInit;
     ETextRenderMethod n_RenderMethod;
-    ETextRenderType n_RenderType;
+
 
 };
 

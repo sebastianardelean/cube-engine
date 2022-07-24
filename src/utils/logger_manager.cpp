@@ -23,7 +23,8 @@ LoggerManager &LoggerManager::GetInstance()
 LoggerManager::LoggerManager() {
 
     p_Logger= spdlog::rotating_logger_mt("engine","logs/engine_log.txt", max_size,max_files);
-    spdlog::flush_on(spdlog::level::n_levels);
+    spdlog::flush_on(spdlog::level::err);
+
 }
 
 std::shared_ptr<spdlog::logger> LoggerManager::GetLogger() {

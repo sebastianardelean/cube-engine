@@ -30,12 +30,23 @@ namespace utils {
         return hdlRenderer;
     }
 
+    SDL_Texture *sdl_safe_create_texture(SDL_Renderer *renderer, int width, int height) {
+
+        SDL_Texture *hdlTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32,
+                                     SDL_TEXTUREACCESS_TARGET, width,
+                                                    height);
+        if(hdlTexture==nullptr) {
+            throw cubeexcept::SdlTextureCreateException(std::string(SDL_GetError()));
+        }
+        return hdlTexture;
+    }
+
     SDL_Texture *sdl_safe_create_texture(SDL_Renderer *renderer, SDL_Window *window) {
-        std::int32_t windowWidth = 0;
-        std::int32_t windowHeight = 0;
+        int windowHeight = 0;
+        int windowWidth = 0;
         SDL_GetWindowSize(window, &windowWidth, &windowHeight);
         SDL_Texture *hdlTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32,
-                                     SDL_TEXTUREACCESS_TARGET, windowWidth,
+                                                    SDL_TEXTUREACCESS_TARGET, windowWidth,
                                                     windowHeight);
         if(hdlTexture==nullptr) {
             throw cubeexcept::SdlTextureCreateException(std::string(SDL_GetError()));

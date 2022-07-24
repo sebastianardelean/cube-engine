@@ -12,15 +12,16 @@ public:
 
 protected:
     void DrawScene() {
-        cube::CubeColor textColor {0xFF,0xA5,0x00,0xFF};
-        WriteText(150,150, "Ana are mere",textColor);
+        cube::color_t textColor {0xFF, 0xA5, 0x00, 0xFF};
         DrawLine(100,100,250,250, textColor);
+        WriteText(150,150,"Ana are mere", textColor);
+        DrawLine(250,250,470,500, textColor);
 
     }
 
     void OnKeyPressed(SDL_Keycode key) {
-        cube::CubeColor newColor{0xFF,0x00,0x00,0xFF};
-        DrawLine(250,250,100,500, newColor);
+        cube::color_t newColor{rand() % 255, rand() % 255, rand() % 255, 0xFF};
+        DrawLine(rand()%800,rand()%600,rand()%800,rand()%600, newColor);
     }
 };
 

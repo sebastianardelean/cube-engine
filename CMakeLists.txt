@@ -52,6 +52,8 @@ if(ENABLE_PCH)
     <SDL.h>
     <SDL_ttf.h>
     <chrono>
+    <utility>
+    <deque>
     )
 endif()
 

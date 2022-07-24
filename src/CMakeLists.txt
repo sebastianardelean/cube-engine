@@ -8,8 +8,8 @@ set(src
         graphics/event_handler.cpp
         graphics/game_scene.cpp
         graphics/render_manager.cpp
-        sprite.cpp
-        text.cpp
+        graphics/sprite.cpp
+        graphics/text.cpp
         )
 set(inc
         cube.hpp
@@ -20,8 +20,9 @@ set(inc
         graphics/event_handler.hpp
         graphics/game_scene.hpp
         graphics/render_manager.hpp
-        sprite.hpp
-        text.hpp
+        graphics/sprite.hpp
+        graphics/text.hpp
+        pixel.hpp
         )
 
 

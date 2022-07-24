@@ -16,8 +16,8 @@ public:
     void EventKeyPressed(SDL_Keycode key);
  //   void GetPixelsAndPitch(std::uint32_t *pixels, std::int32_t *pitch);
 protected:
-    void WriteText(int x, int y, const std::string &text, const cube::CubeColor &color);
-    void DrawLine(int x1,int y1,int x2,int y2,const cube::CubeColor &color);
+    void WriteText(int x, int y, const std::string &text, const cube::color_t &color);
+    void DrawLine(int x1,int y1,int x2,int y2,const cube::color_t &color);
     virtual void DrawScene() {}
     virtual void OnKeyPressed(SDL_Keycode key) {}
     std::unique_ptr<RenderManager> p_Renderer;
