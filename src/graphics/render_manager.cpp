@@ -6,6 +6,7 @@
 RenderManager::RenderManager(SDL_Window *window) try:
     p_Renderer(utils::sdl_safe_create_renderer(window, "opengl"), &SDL_DestroyRenderer),
     p_Texture(utils::sdl_safe_create_texture(p_Renderer.get(),window), &SDL_DestroyTexture)
+
 {
 
 }
@@ -16,11 +17,17 @@ catch (const cubeexcept::SdlException &e)
 
 void RenderManager::PrepareScene()
 {
+    SDL_SetRenderDrawColor(p_Renderer.get(), 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(p_Renderer.get());
 }
-void RenderManager::Render(const std::uint32_t *gamePixels,const std::uint32_t pitch)
+void RenderManager::Render()
 {
-    SDL_UpdateTexture(p_Texture.get(), NULL, gamePixels, pitch);
-    SDL_RenderCopy(p_Renderer.get(), p_Texture.get(), NULL, NULL);
+ //   SDL_UpdateTexture(p_Texture.get(), NULL, gamePixels, pitch);
+   // SDL_RenderCopy(p_Renderer.get(), p_Texture.get(), NULL, NULL);
     SDL_RenderPresent(p_Renderer.get());
+}
+
+void RenderManager::RenderLine(int x1, int y1, int x2, int y2, SDL_Color color) {
+    SDL_SetRenderDrawColor(p_Renderer.get(), color.r, color.g,color.b,color.a);
+    SDL_RenderDrawLine(p_Renderer.get(), x1,y1,x2,y2);
 }

@@ -14,4 +14,8 @@ namespace utils {
     SDL_Surface *sdl_safe_create_surface(const std::int32_t surfaceWidth, const std::int32_t surfaceHeight);
 
     SDL_Surface *sdl_safe_load_bmp(const std::string &filePath);
+
+    void sdl_ttf_safe_init();
+
+    TTF_Font *sdl_ttf_safe_open_font(const std::string &filePath, int ptsize);
 }

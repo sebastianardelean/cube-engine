@@ -50,6 +50,7 @@ if(ENABLE_PCH)
     <fmt/core.h>
     <spdlog/spdlog.h>
     <SDL.h>
+    <SDL_ttf.h>
     <chrono>
     )
 endif()

@@ -59,4 +59,18 @@ namespace utils {
         }
         return hdlSurface;
     }
+
+    void sdl_ttf_safe_init() {
+        if (TTF_Init()==-1) {
+            throw cubeexcept::SdlInitTTFException(std::string(TTF_GetError()));
+        }
+    }
+
+    TTF_Font *sdl_ttf_safe_open_font(const std::string &filePath, int ptsize) {
+        TTF_Font *hdlFont = TTF_OpenFont(filePath.c_str(), ptsize);
+        if (hdlFont == nullptr) {
+            throw cubeexcept::SdlTTFOpenFontException(std::string(TTF_GetError()));
+        }
+        return hdlFont;
+    }
 }

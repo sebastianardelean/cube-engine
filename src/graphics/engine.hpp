@@ -13,7 +13,7 @@ public:
     Engine &operator=(Engine &&) = delete;
 
     ~Engine();
-    void Run(GameScene &game);
+    void Run(GameScene *game);
 protected:
 
 private:
@@ -39,6 +39,7 @@ private:
     std::unique_ptr<RenderManager> p_RenderManager;
     std::unique_ptr<cube::GameScene> p_GameScene;
     cube::GameConfig gameConfig;
+
     static std::unique_ptr<Engine::SdlGlobalInitializer>p_SdlGlobalInitializer;
 
 

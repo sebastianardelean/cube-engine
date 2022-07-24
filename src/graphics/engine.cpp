@@ -35,13 +35,14 @@ cube::Engine::~Engine() {
 //p_Window->setFramerateLimit(framerate);
 
 
-void cube::Engine::Run(cube::GameScene &game) {
+void cube::Engine::Run(cube::GameScene *game) {
 
     std::uint32_t *gamePixels= new std::uint32_t[gameConfig.width*gameConfig.height];
     std::int32_t pitch;
       //UserLoop
       //Render
-
+    p_GameScene.reset(game);
+    p_GameScene->SetRenderer(p_RenderManager.release());
     while(bIsRunning) {
         timePoint2 = std::chrono::system_clock::now();
         std::chrono::duration<float> elapsedTime = timePoint2 - timePoint1;
@@ -50,13 +51,13 @@ void cube::Engine::Run(cube::GameScene &game) {
         f_ElapsedTime = elapsedTime.count();
         f_LastElapsedTime = f_ElapsedTime;
 
-        p_RenderManager->PrepareScene();
+
         p_EventHandler->PollEvent();
 
-        game.UpdateScene();
-        game.GetPixelsAndPitch(gamePixels,&pitch);
+        p_GameScene->UpdateScene();
+        //game.GetPixelsAndPitch(gamePixels,&pitch);
 
-        p_RenderManager->Render(gamePixels,pitch);
+
 
 
 
@@ -81,6 +82,11 @@ void cube::Engine::InputEventHandler(SDL_Event &event)
         case SDL_QUIT:
             LoggerManager::GetInstance().GetLogger()->info("Event");
             bIsRunning=false;
+            break;
+        case SDL_KEYDOWN:
+        case SDL_KEYUP:
+            p_GameScene->EventKeyPressed(event.key.keysym.sym);
+            LoggerManager::GetInstance().GetLogger()->error("Key {}",SDL_GetKeyName(event.key.keysym.sym));
             break;
         default:
             break;

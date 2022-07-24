@@ -58,4 +58,22 @@ namespace cubeexcept {
 
 
     };
+
+    class SdlInitTTFException : public SdlException {
+    public:
+        SdlInitTTFException(const std::string &msg):SdlException(msg) {
+
+        }
+
+
+    };
+
+    class SdlTTFOpenFontException : public SdlException {
+    public:
+        SdlTTFOpenFontException(const std::string &msg):SdlException(msg) {
+
+        }
+
+
+    };
 }

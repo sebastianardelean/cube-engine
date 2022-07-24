@@ -9,6 +9,7 @@ set(src
         graphics/game_scene.cpp
         graphics/render_manager.cpp
         sprite.cpp
+        text.cpp
         )
 set(inc
         cube.hpp
@@ -20,6 +21,7 @@ set(inc
         graphics/game_scene.hpp
         graphics/render_manager.hpp
         sprite.hpp
+        text.hpp
         )
 
 
@@ -34,5 +36,6 @@ target_link_libraries(
         CONAN_PKG::fmt
         CONAN_PKG::spdlog
         CONAN_PKG::sdl
-#        CONAN_PKG::sdl_ttf
+        CONAN_PKG::sdl_ttf
+        CONAN_PKG::libffi
 )
