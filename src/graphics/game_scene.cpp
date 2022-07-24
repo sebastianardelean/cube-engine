@@ -54,3 +54,15 @@ void cube::GameScene::DrawSprite(int x, int y, const std::string path) {
     Sprite sprite(path);
     p_Renderer->RenderSurface(sprite.GetSurface(), x, y);
 }
+
+void cube::GameScene::DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, const cube::color_t &color) {
+    DrawLine(x1,y1,x2,y2,color);
+    DrawLine(x2,y2,x3,y3,color);
+    DrawLine(x3,y3,x1,y1,color);
+}
+
+void cube::GameScene::DrawPolygon(std::vector<cube::vector2di> coordinates, const cube::color_t &color) {
+    std::for_each(coordinates.begin(), coordinates.end(), [](const cube::vector2di &el){
+
+    })
+}

@@ -238,6 +238,12 @@
 		<Unit filename="/home/mihai/Development/cube-engine/src/utils/utils.hpp">
 			<Option target="intro"/>
 		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/vector2d.hpp">
+			<Option target="intro"/>
+		</Unit>
+		<Unit filename="/home/mihai/Development/cube-engine/src/vertex.hpp">
+			<Option target="intro"/>
+		</Unit>
 		<Unit filename="/home/mihai/Development/cube-engine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

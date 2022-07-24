@@ -47,6 +47,7 @@ if(ENABLE_PCH)
     <string>
     <tuple>
     <cstddef>
+    <cmath>
     <fmt/core.h>
     <spdlog/spdlog.h>
     <SDL.h>

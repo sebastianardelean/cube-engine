@@ -21,7 +21,7 @@ macro(run_conan)
 #    docopt.cpp/0.6.3
 #    fmt/7.1.3
     spdlog/1.8.5
-    sdl/2.0.16
+    sdl/2.0.16# was 2.0.16
     sdl_ttf/2.0.15
     libffi/3.4.2
     libiconv/1.17

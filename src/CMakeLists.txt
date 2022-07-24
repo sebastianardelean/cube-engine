@@ -23,6 +23,8 @@ set(inc
         graphics/sprite.hpp
         graphics/text.hpp
         pixel.hpp
+        vector2d.hpp
+        vertex.hpp
         )
 
 
