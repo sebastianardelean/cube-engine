@@ -4,6 +4,7 @@
 #include "../game_config.hpp"
 #include "game_scene.hpp"
 #include "text.hpp"
+#include "sprite.hpp"
 
 cube::GameScene::GameScene(const cube::GameConfig &gameConfig) try:
     p_Surface(utils::sdl_safe_create_surface(gameConfig.width,gameConfig.height), &SDL_FreeSurface)
@@ -35,8 +36,8 @@ void cube::GameScene::WriteText(int x, int y, const std::string &text,const cube
 
     Text::Font font("/usr/share/fonts/TTF/DejaVuSans.ttf",25,TTF_STYLE_BOLD,TTF_HINTING_NORMAL);
 
-    SDL_Surface  *surface = textWriter.SetText(25,25,text,font,color,color);
-    p_Renderer->RenderText(surface);
+    SDL_Surface  *surface = textWriter.SetText(text,font,color,color);
+    p_Renderer->RenderSurface(surface,x,y);
     SDL_FreeSurface(surface);
 }
 
@@ -47,4 +48,9 @@ void cube::GameScene::SetRenderer(RenderManager* renderer) {
 void cube::GameScene::DrawLine(int x1, int y1, int x2, int y2,const cube::color_t &color) {
 
     p_Renderer->RenderLine(x1,y1,x2,y2,color);
+}
+
+void cube::GameScene::DrawSprite(int x, int y, const std::string path) {
+    Sprite sprite(path);
+    p_Renderer->RenderSurface(sprite.GetSurface(), x, y);
 }

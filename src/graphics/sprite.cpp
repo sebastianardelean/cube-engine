@@ -20,3 +20,8 @@ Sprite::~Sprite()
 
 }
 
+SDL_Surface *Sprite::GetSurface()
+{
+    return p_SdlSurface.get();
+}
+

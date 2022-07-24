@@ -33,7 +33,7 @@ public:
 
     void SetRenderMethod (const ETextRenderMethod& renderMethod);
 
-    SDL_Surface* SetText(int x, int y, const std::string &text, Text::Font& font, const cube::color_t& fg, const cube::color_t& bg);
+    SDL_Surface* SetText(const std::string &text, Text::Font& font, const cube::color_t& fg, const cube::color_t& bg);
 
 private:
 

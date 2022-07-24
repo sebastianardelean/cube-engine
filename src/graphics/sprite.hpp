@@ -10,6 +10,7 @@ public:
     Sprite(Sprite &&)=default;
     Sprite &operator=(const Sprite &)=default;
     Sprite &operator=(Sprite &&)=default;
+    SDL_Surface *GetSurface();
 private:
     std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)> p_SdlSurface;
 };

@@ -37,17 +37,17 @@ void RenderManager::RenderLine(int x1, int y1, int x2, int y2, SDL_Color color) 
 
 }
 
-void RenderManager::RenderText(SDL_Surface *surface)
+void RenderManager::RenderSurface(SDL_Surface *surface, int x, int y)
 {
 
     SDL_Rect r;
     SDL_Texture *texture = SDL_CreateTextureFromSurface(p_Renderer.get(), surface);
-    //SDL_UpdateTexture(p_Texture.get(), nullptr, surface->pixels, surface->pitch);
-    r.x = 50;
-    r.y = 50;
+    r.x = x;
+    r.y = y;
 
     SDL_QueryTexture(texture,NULL,NULL,&r.w,&r.h);
     SDL_RenderCopy(p_Renderer.get(), texture, NULL, &r);
 
-
+    SDL_DestroyTexture(texture);
 }
+

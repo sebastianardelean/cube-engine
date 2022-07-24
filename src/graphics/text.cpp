@@ -24,7 +24,7 @@ void Text::SetRenderMethod(const Text::ETextRenderMethod &renderMethod) {
 
 
 
-SDL_Surface* Text::SetText(int x, int y, const std::string &text, Text::Font &font, const cube::color_t &fg,
+SDL_Surface* Text::SetText(const std::string &text, Text::Font &font, const cube::color_t &fg,
                          const cube::color_t &bg) {
 
 
