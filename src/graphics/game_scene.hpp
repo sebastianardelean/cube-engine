@@ -1,6 +1,6 @@
 #pragma once
 #include "render_manager.hpp"
-#include "../pixel.hpp"
+#include "pixel.hpp"
 #include "../cube.hpp"
 
 class cube::GameScene {

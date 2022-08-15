@@ -22,8 +22,8 @@ set(inc
         graphics/render_manager.hpp
         graphics/sprite.hpp
         graphics/text.hpp
-        pixel.hpp
-        vertex.hpp
+        graphics/pixel.hpp
+        graphics/vertex.hpp
         )
 
 

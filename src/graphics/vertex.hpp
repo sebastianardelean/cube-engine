@@ -1,7 +1,6 @@
 #pragma once
-#include "vector2d.hpp"
-#include "cube.hpp"
-struct vertex_t
+#include "../cube.hpp"
+struct cube::vertex_t
 {
 
     cube::vector2df position;

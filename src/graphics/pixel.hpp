@@ -1,5 +1,5 @@
 #pragma once
-#include "cube.hpp"
+#include "../cube.hpp"
 struct pixel {
     cube::color_t color;
     int x;
