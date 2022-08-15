@@ -66,3 +66,9 @@ void cube::GameScene::DrawPolygon(std::vector<cube::vector2di> coordinates, cons
 
     });
 }
+
+void cube::GameScene::DrawPixel(const pixel &p, const cube::color_t &color)
+{
+    p_Renderer->RenderPixel(p.x, p.y,color);
+
+}

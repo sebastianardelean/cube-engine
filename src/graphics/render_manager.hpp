@@ -12,6 +12,7 @@ public:
     void Render();
 
     void RenderLine(int x1,int x2, int y1, int y2, SDL_Color color);
+    void RenderPixel(int x,int y, SDL_Color color);
     void RenderSurface(SDL_Surface *surface,int x, int y);
 
 protected:

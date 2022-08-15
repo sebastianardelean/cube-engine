@@ -36,7 +36,11 @@ void RenderManager::RenderLine(int x1, int y1, int x2, int y2, SDL_Color color) 
     SDL_RenderDrawLine(p_Renderer.get(), x1,y1,x2,y2);
 
 }
-
+void RenderManager::RenderPixel(int x,int y, SDL_Color color)
+{
+    SDL_SetRenderDrawColor(p_Renderer.get(), color.r, color.g,color.b,color.a);
+    SDL_RenderDrawPoint(p_Renderer.get(), x,y);
+}
 void RenderManager::RenderSurface(SDL_Surface *surface, int x, int y)
 {
 
