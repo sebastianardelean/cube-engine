@@ -4,7 +4,7 @@
 struct vertex_t
 {
 
-    cube::vector2f position;
+    cube::vector2df position;
     cube::color_t color;
-    cube::vector2f textureCoords;
+    cube::vector2df textureCoords;
 };

@@ -27,7 +27,8 @@ option(ENABLE_FUZZING "Enable Fuzzing Builds" OFF)
 option(ENABLE_PCH "Enable Precompiled Headers" ON)
 
 
-#find_package(SDL2 REQUIRED)
+
+
 # Very basic PCH example
 if(ENABLE_PCH)
   # This sets a global PCH parameter, each project will build its own PCH, which is a good idea if any #define's change
@@ -55,6 +56,7 @@ if(ENABLE_PCH)
     <chrono>
     <utility>
     <deque>
+    <Eigen/Dense>
     )
 endif()
 

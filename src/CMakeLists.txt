@@ -23,7 +23,6 @@ set(inc
         graphics/sprite.hpp
         graphics/text.hpp
         pixel.hpp
-        vector2d.hpp
         vertex.hpp
         )
 
@@ -41,4 +40,5 @@ target_link_libraries(
         CONAN_PKG::sdl
         CONAN_PKG::sdl_ttf
         CONAN_PKG::libffi
+        CONAN_PKG::eigen
 )

@@ -1,10 +1,8 @@
 #pragma once
-#include "vector2d.hpp"
 namespace cube {
-    using vector2di = vector2d<std::int32_t>;
-    using vector2du = vector2d<std::uint32_t>;
-    using vector2df = vector2d<float>;
-    using vector2dd = vector2d<double>;
+    using vector2di = Eigen::Vector2i;
+    using vector2df = Eigen::Vector2f;
+    using vector2dd = Eigen::Vector2d;
     using color_t = SDL_Color;
 
     struct GameConfig;
