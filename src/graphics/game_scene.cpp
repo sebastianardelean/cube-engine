@@ -64,5 +64,5 @@ void cube::GameScene::DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y
 void cube::GameScene::DrawPolygon(std::vector<cube::vector2di> coordinates, const cube::color_t &color) {
     std::for_each(coordinates.begin(), coordinates.end(), [](const cube::vector2di &el){
 
-    })
+    });
 }
