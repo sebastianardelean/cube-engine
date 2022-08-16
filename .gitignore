@@ -13,3 +13,5 @@ tags
 Lib/*
 cmake-build-release/
 cmake-build-debug/
+.vs/*
+out/*
