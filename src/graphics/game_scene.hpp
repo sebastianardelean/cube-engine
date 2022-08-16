@@ -15,6 +15,9 @@ public:
     void UpdateScene();
     void SetRenderer(RenderManager* renderer);
     void EventKeyPressed(SDL_Keycode key);
+    void EventKeyReleased(SDL_Keycode key);
+    void EventMouseButtonDown(std::uint8_t mouseButton);
+    void EventMouseButtonUp(std::uint8_t mouseButton);
 
 protected:
     void WriteText(int x, int y, const std::string &text, const cube::color_t &color);
@@ -26,6 +29,10 @@ protected:
     void DrawPixel(const std::vector<pixel> &pixels);
     virtual void DrawScene() {}
     virtual void OnKeyPressed(SDL_Keycode key) {}
+    virtual void OnKeyReleased(SDL_Keycode key) {}
+    virtual void OnMouseButtonDown(std::uint8_t button){}
+    virtual void OnMouseButtonUp(std::uint8_t button){}
+
     std::unique_ptr<RenderManager> p_Renderer;
     std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)> p_Surface;
 

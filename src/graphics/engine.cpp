@@ -55,7 +55,7 @@ void cube::Engine::Run(cube::GameScene *game) {
         p_EventHandler->PollEvent();
 
         p_GameScene->UpdateScene();
-        //game.GetPixelsAndPitch(gamePixels,&pitch);
+
 
 
 
@@ -84,9 +84,18 @@ void cube::Engine::InputEventHandler(SDL_Event &event)
             bIsRunning=false;
             break;
         case SDL_KEYDOWN:
-        case SDL_KEYUP:
             p_GameScene->EventKeyPressed(event.key.keysym.sym);
-            LoggerManager::GetInstance().GetLogger()->error("Key {}",SDL_GetKeyName(event.key.keysym.sym));
+            LoggerManager::GetInstance().GetLogger()->debug("Key {}",SDL_GetKeyName(event.key.keysym.sym));
+            break;
+        case SDL_KEYUP:
+            p_GameScene->EventKeyReleased(event.key.keysym.sym);
+            LoggerManager::GetInstance().GetLogger()->debug("Key {}",SDL_GetKeyName(event.key.keysym.sym));
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            p_GameScene->EventMouseButtonDown(event.button.button);
+            break;
+        case SDL_MOUSEBUTTONUP:
+            p_GameScene->EventMouseButtonUp(event.button.button);
             break;
         default:
             break;

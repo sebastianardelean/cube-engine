@@ -6,6 +6,7 @@ namespace cube {
     using vector2dd = Eigen::Vector2d;
     using color_t = SDL_Color;
     struct vertex_t;
+
     struct GameConfig;
 
     //Viewport support

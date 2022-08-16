@@ -28,6 +28,20 @@ void cube::GameScene::EventKeyPressed(SDL_Keycode key) {
     OnKeyPressed(key);
 }
 
+void cube::GameScene::EventKeyReleased(SDL_Keycode key) {
+    OnKeyReleased(key);
+}
+
+void cube::GameScene::EventMouseButtonDown(std::uint8_t mouseButton)
+{
+    OnMouseButtonDown(mouseButton);
+}
+void cube::GameScene::EventMouseButtonUp(std::uint8_t mouseButton)
+{
+    OnMouseButtonUp(mouseButton);
+}
+
+
 
 void cube::GameScene::WriteText(int x, int y, const std::string &text,const cube::color_t &color)
 {
