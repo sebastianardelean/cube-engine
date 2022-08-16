@@ -69,7 +69,9 @@ void cube::Engine::Run(cube::GameScene *game) {
             std::string fpsInfo = "FPS "+std::to_string(n_FrameCounter);
             LoggerManager::GetInstance().GetLogger()->info(fpsInfo);
             n_FrameCounter = 0;
+          
         }
+        
     }
     delete [] gamePixels;
 

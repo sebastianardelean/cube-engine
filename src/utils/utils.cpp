@@ -13,16 +13,16 @@ namespace utils {
 
     SDL_Renderer *sdl_safe_create_renderer(SDL_Window *window, std::string preferredRenderer){
         int rendererIndex = -1;
-        for (int i = 0; i < SDL_GetNumRenderDrivers(); ++i) {
-            SDL_RendererInfo rendererInfo = {};
-            SDL_GetRenderDriverInfo(i, &rendererInfo);
-            if (rendererInfo.name != preferredRenderer) {
-                continue;
-            } else {
-                rendererIndex = i;
-                break;
-            }
-        }
+        //for (int i = 0; i < SDL_GetNumRenderDrivers(); ++i) {
+        //    SDL_RendererInfo rendererInfo = {};
+        //    SDL_GetRenderDriverInfo(i, &rendererInfo);
+        //    if (rendererInfo.name != preferredRenderer) {
+        //        continue;
+        //    } else {
+        //        rendererIndex = i;
+        //        break;
+        //    }
+        //}
         SDL_Renderer *hdlRenderer = SDL_CreateRenderer(window, rendererIndex, SDL_RENDERER_ACCELERATED);
         if (hdlRenderer == nullptr) {
             throw cubeexcept::SdlRendererCreateException(std::string(SDL_GetError()));

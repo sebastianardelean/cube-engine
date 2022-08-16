@@ -48,7 +48,7 @@ void cube::GameScene::WriteText(int x, int y, const std::string &text,const cube
     Text textWriter;
     textWriter.SetRenderMethod(Text::ETextRenderMethod::TextRenderSolid);
 
-    Text::Font font("/usr/share/fonts/TTF/DejaVuSans.ttf",25,TTF_STYLE_BOLD,TTF_HINTING_NORMAL);
+    Text::Font font("d:\\Development\\cube-engine\\\DejaVuSans.ttf",25,TTF_STYLE_BOLD,TTF_HINTING_NORMAL);
 
     SDL_Surface  *surface = textWriter.SetText(text,font,color,color);
     p_Renderer->RenderSurface(surface,x,y);
