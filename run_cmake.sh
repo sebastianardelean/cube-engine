@@ -1,5 +1,5 @@
 #!/bin/bash
-cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/mihai/Documents/cpp/cube/Lib/SDL2-2.0.14/install
+cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/mihai/Development/cube-engine/Lib/SDL2-2.0.22/
 
 
 #TO BUILD SDL2

@@ -25,7 +25,7 @@ macro(run_conan)
     sdl_ttf/2.0.15
     libffi/3.4.2
     libiconv/1.17
-    eigen/3.3.7
+#    eigen/3.3.7
     OPTIONS
     ${CONAN_EXTRA_OPTIONS}
     BASIC_SETUP

@@ -17,6 +17,7 @@ set(inc
         utils/utils.hpp
         utils/cube_exceptions.hpp
         utils/logger_manager.hpp
+	utils/vector2d.hpp
         graphics/event_handler.hpp
         graphics/game_scene.hpp
         graphics/render_manager.hpp
@@ -40,5 +41,5 @@ target_link_libraries(
         CONAN_PKG::sdl
         CONAN_PKG::sdl_ttf
         CONAN_PKG::libffi
-        CONAN_PKG::eigen
+	#        CONAN_PKG::eigen
 )

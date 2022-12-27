@@ -2,3 +2,4 @@
 [2022-07-18 22:19:58.809] [engine] [info] Event
 [2022-07-18 23:18:58.442] [engine] [info] Event
 [2022-07-18 23:20:46.415] [engine] [info] Event
+[2022-12-27 15:59:31.997] [engine] [error] Couldn't open d:\Development\cube-engine\DejaVuSans.ttf

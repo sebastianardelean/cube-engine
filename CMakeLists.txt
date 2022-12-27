@@ -56,7 +56,7 @@ if(ENABLE_PCH)
     <chrono>
     <utility>
     <deque>
-    <Eigen/Dense>
+    #    <Eigen/Dense>
     )
 endif()
 
